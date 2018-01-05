@@ -6,7 +6,7 @@ package money;
 // TODO [x]Ban.reduce(Money)
 // TODO [x]Moneyを変換して換算を行う
 // TODO [x]Reduce(Bank,String
-// TODO [] Sum.plus
+// TODO [x] Sum.plus
 // TODO [] Expression.times
 
 
@@ -82,5 +82,15 @@ public class MoneyTest {
 		assertEquals(1,new Bank().rate("USD","USD"));
 	}
 
+	@Test
+	public void testSumPlusMoney() {
+		Expression fiveBucks = Money.dollar(5);
+		Expression tenFrancs = Money.franc(10);
+		Bank bank = new Bank();
+		bank.addRate("CHF", "USD", 2);
+		Expression sum = new Sum(fiveBucks,tenFrancs).plus(fiveBucks);
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.dollar(15),result);
+	}
 }
 
