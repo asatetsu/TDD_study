@@ -1,11 +1,11 @@
 package money;
 
 // TODO []$5 + 10CHF = $10(レートが2:1の場合)
-// TODO []$5 + $5 = $10
+// TODO [x]$5 + $5 = $10
 // TODO []$5 + $5がMoneyを返す
 // TODO [x]Ban.reduce(Money)
-// TODO []Moneyを変換して換算を行う
-// TODO []Reduce(Bank,String
+// TODO [x]Moneyを変換して換算を行う
+// TODO [x]Reduce(Bank,String
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,5 +73,11 @@ public class MoneyTest {
 		Money result = bank.reduce(Money.franc(2), "USD");
 		assertEquals(Money.dollar(1),result);
 	}
+	
+	@Test
+	public void testIdentityRate() {
+		assertEquals(1,new Bank().rate("USD","USD"));
+	}
+
 }
 
