@@ -2,7 +2,7 @@ package money;
 
 // TODO [x]$5 + 10CHF = $10(レートが2:1の場合)
 // TODO [x]$5 + $5 = $10
-// TODO []$5 + $5がMoneyを返す
+// TODO [x]$5 + $5がMoneyを返す
 // TODO [x]Ban.reduce(Money)
 // TODO [x]Moneyを変換して換算を行う
 // TODO [x]Reduce(Bank,String
@@ -102,12 +102,6 @@ public class MoneyTest {
 		Expression sum = new Sum(fiveBucks,tenFrancs).times(2);
 		Money result = bank.reduce(sum, "USD");
 		assertEquals(Money.dollar(20),result);
-	}
-	
-	@Test
-	public void testPlusSameCurrencyReturnsMoney() {
-		Expression sum = Money.dollar(5).plus(Money.dollar(5));
-		assertTrue(sum instanceof Money);
 	}
 }
 
