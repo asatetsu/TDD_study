@@ -3,6 +3,7 @@ package money;
 // TODO $5 + 10CHF = $10(レートが2:1の場合)
 // TODO $5 + $5 = $10
 // TODO $5 + $5がMoneyを返す
+// TODO Ban.reduce(Money)
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -54,6 +55,13 @@ public class MoneyTest {
 		Bank bank = new Bank();
 		Money result = bank.reduce(sum, "USD");
 		assertEquals(Money.dollar(7),result);
+	}
+	
+	@Test
+	public void testReduceMoney() {
+		Bank bank = new Bank();
+		Money result = bank.reduce(Money.dollar(1), "USD");
+		assertEquals(Money.dollar(1),result);
 	}
 }
 
