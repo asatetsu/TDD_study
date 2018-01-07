@@ -1,4 +1,4 @@
-# TODO: []テストメソッドを呼び出す
+# TODO: [x]テストメソッドを呼び出す
 # TODO: []setUpを最初に呼び出す
 # TODO: []tearDownをあとで呼び出す
 # TODO: []テストメソッドが失敗したとしてもtearDownを呼び出す
@@ -18,8 +18,11 @@ class WasRun(TestCase):
 	def testMethod(self):
 		self.wasRun = 1
 
+class TestCaseTest(TestCase):
+	def testRunning(self):
+		test = WasRun("testMethod")
+		assert(not test.wasRun)
+		test.run()
+		assert(test.wasRun)
 
-test = WasRun("testMethod")
-print(test.wasRun)
-test.run()
-print(test.wasRun)
+TestCaseTest("testRunning").run()
