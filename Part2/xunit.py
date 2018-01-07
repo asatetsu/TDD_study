@@ -4,10 +4,14 @@
 # TODO: []テストメソッドが失敗したとしてもtearDownを呼び出す
 # TODO: []複数のテストを走らせる
 # TODO: []収集したテスト結果を出力する
-class WasRun:
+class TestCase:
+	def __init__(self,name):
+		self.name = name
+
+class WasRun(TestCase):
 	def __init__(self, name):
 		self.wasRun = None
-		self.name = name
+		super().__init__(name)
 	def run(self):
 		method = getattr(self,self.name)
 		method()  
