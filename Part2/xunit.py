@@ -7,6 +7,7 @@
 # TODO: [x]WasRunで文字列をログに記録する
 # TODO: [x]失敗してテストを出力する
 # TODO: []setUpのエラーをキャッチして出力する
+# TODO: []TestCase クラスからTestSuiteを作る
 class TestCase:
 	def __init__(self,name):
 		self.name = name
